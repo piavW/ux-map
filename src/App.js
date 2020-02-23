@@ -1,10 +1,11 @@
 import React from 'react'
 import Map from './MapComponent'
+import { Header } from 'semantic-ui-react'
 
 const App = () => {
   return (
     <div className="App">
-      <h1 id="header">UX-Map, find your team-mates</h1>
+      <Header id="header">UX-Map, find your team-mates</Header>
       <div className="map-container">
         <Map />
       </div>
