@@ -11,24 +11,27 @@ class MapComponent extends Component {
     selectedPlace: {}
   }
 
-  // async componentDidMount() {
-  //   let response = await GetOperators()
-  //   if (response.error_message) {
-  //     this.setState({
-  //       errorMessage: response.error_message
-  //     })
-  //   } else {
-  //     this.setState({
-  //       operators: response
-  //     })
-  //   }
-  // }
+  async componentDidMount() {
+    let response = await GetOperators()
+    if (response.error_message) {
+      this.setState({
+        errorMessage: response.error_message
+      })
+    } else {
+      this.setState({
+        operators: response
+      })
+    }
+  }
 
   render() {
     let errorMessage
+    let operatorData = this.state.operators
     const style = {
-      width: '75%',
+      width: '60%',
       height: '80%',
+      left: '20%',
+      borderRadius: '6px',
       position: 'relative'
     }
 
@@ -47,7 +50,22 @@ class MapComponent extends Component {
           initialCenter={{
             lat: 30.0131,
             lng: 10.0686}}
-          />
+          >
+            {operatorData.map(operatorInfo => {
+              return(
+                <Marker
+                id={operatorInfo.id}
+                type={operatorInfo.type}
+                image={operatorInfo.image}
+                information={operatorInfo.information}
+                qualifications={operatorInfo.qualifications}
+                equipment={operatorInfo.equipment}
+                lat={operatorInfo.latitude}
+                long={operatorInfo.longitude}
+                />
+              )
+            })}
+          </Map>
         </div>
       </>
     )
