@@ -6,9 +6,8 @@ class MapComponent extends Component {
   state = {
     operators: [],
     errorMessage: null,
-    showingInfoWindow: false,
     activeMarker: {},
-    selectedPlace: {}
+    selectedPlace: null
   }
 
   async componentDidMount() {
@@ -24,8 +23,15 @@ class MapComponent extends Component {
     }
   }
 
+  onMarkerClick = (props,marker) => {
+    this.setState({
+      selectedPlace: props,
+      activeMarker: marker
+    })
+  }
+
   render() {
-    let errorMessage
+    let errorMessage, showingOperatorInfo
     let operatorData = this.state.operators
     const style = {
       width: '60%',
@@ -37,6 +43,24 @@ class MapComponent extends Component {
 
     if (this.state.errorMessage) {
     errorMessage = <p id="error-message">{this.state.errorMessage}</p>
+    }
+
+    if (this.state.selectedPlace) {
+      this.state.operators.map(operatorInfo => {
+        debugger
+        showingOperatorInfo = (
+          <> 
+          <p>Test test</p>
+            <h1 content={operatorInfo.type}></h1>
+                  image={operatorInfo.image}
+                  information={operatorInfo.information}
+                  qualifications={operatorInfo.qualifications}
+                  equipment={operatorInfo.equipment}
+                  lat={operatorInfo.latitude}
+                  long={operatorInfo.longitude}
+          </>
+        )
+      })
     }
 
     return(
@@ -62,10 +86,12 @@ class MapComponent extends Component {
                 equipment={operatorInfo.equipment}
                 lat={operatorInfo.latitude}
                 long={operatorInfo.longitude}
+                onClick={this.onMarkerClick}
                 />
               )
             })}
           </Map>
+          {showingOperatorInfo}
         </div>
       </>
     )
