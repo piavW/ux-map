@@ -1,0 +1,52 @@
+[
+  {
+    "id": 1,
+    "title": "orgrimmar",
+    "coordinates": [
+      {
+        "latitude": 32.0032,
+        "longitude": 17.8342
+      }
+    ]
+  },
+  {
+    "id": 2,
+    "title": "stormwind",
+    "coordinates": [
+      {
+        "latitude": 14.0032,
+        "longitude": 18.8342
+      }
+    ]
+  },
+  {
+    "id": 3,
+    "title": "barrens",
+    "coordinates": [
+      {
+        "latitude": 19.0032,
+        "longitude": 23.8342
+      }
+    ]
+  },
+  {
+    "id": 4,
+    "title": "booty bay",
+    "coordinates": [
+      {
+        "latitude": 34.0032,
+        "longitude": 14.8342
+      }
+    ]
+  },
+  {
+    "id": 5,
+    "title": "lordaeron",
+    "coordinates": [
+      {
+        "latitude": 42.0032,
+        "longitude": 19.8342
+      }
+    ]
+  }
+]
