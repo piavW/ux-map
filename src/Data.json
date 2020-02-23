@@ -1,0 +1,96 @@
+{
+	"operators": [
+		{
+			"id": "Blue:1",
+			"type": "teamleader",
+			"image": "https://cdn.pixabay.com/photo/2015/10/05/22/37/blank-profile-picture-973460_960_720.png",
+			"information": "",
+			"qualifications": [
+				"Arabic",
+				"Comms"
+			],
+			"equipment": [
+				"PPE",
+				"Pistol",
+				"Radio"
+			]
+		},
+		{
+			"id": "Blue:2",
+			"type": "operator",
+			"image": "https://cdn.pixabay.com/photo/2015/10/05/22/37/blank-profile-picture-973460_960_720.png",
+			"information": "",
+			"qualifications": [
+				"Driver",
+				"Mechanic"
+			],
+			"equipment": [
+				"PPE",
+				"Pistol"
+			]
+		},
+		{
+			"id": "Blue:3",
+			"type": "operator",
+			"image": "https://cdn.pixabay.com/photo/2015/10/05/22/37/blank-profile-picture-973460_960_720.png",
+			"information": "",
+			"qualifications": [
+				"Medic"
+			],
+			"equipment": [
+				"PPE",
+				"Pistol",
+				"Medpack"
+			]
+		},
+		{
+			"id": "Blue:4",
+			"type": "operator",
+			"image": "https://cdn.pixabay.com/photo/2015/10/05/22/37/blank-profile-picture-973460_960_720.png",
+			"information": "",
+			"qualifications": [
+				"Sniper"
+			],
+			"equipment": [
+				"PPE",
+				"Pistol",
+				"Rifle"
+			]
+		},
+		{
+			"id": "fox",
+			"type": "VIP",
+			"image": "https://cdn.pixabay.com/photo/2015/10/05/22/37/blank-profile-picture-973460_960_720.png",
+			"information": "In Raqqa to meet with local executives. Itinerary in secure folder.",
+			"qualifications": [],
+			"equipment": [
+				"PPE"
+			]
+		},
+		{
+			"id": "green:1",
+			"type": "asset",
+			"image": "https://cdn.pixabay.com/photo/2015/10/05/22/37/blank-profile-picture-973460_960_720.png",
+			"information": "Local security firm X.",
+			"qualifications": [
+				"Driver"
+			],
+			"equipment": [
+				"AK47"
+			]
+		},
+		{
+			"id": "green:2",
+			"type": "asset",
+			"image": "https://cdn.pixabay.com/photo/2015/10/05/22/37/blank-profile-picture-973460_960_720.png",
+			"information": "Local security firm X.",
+			"qualifications": [
+				"Comms",
+				"Technician"
+			],
+			"equipment": [
+				"AK47"
+			]
+		}
+	]
+}
