@@ -12,10 +12,10 @@
     "react-scripts": "3.4.0"
   },
   "scripts": {
-    "start": "PORT=3001 react-scripts start",
-    "build": "react-scripts build",
-    "test": "react-scripts test",
-    "eject": "react-scripts eject",
+    "start": "PORT=3001 react-scripts start & craco start",
+    "build": "react-scripts build & craco build",
+    "test": "react-scripts test & craco test",
+    "eject": "react-scripts eject & craco eject",
     "cy:open": "BROWSER=none npm start & ./node_modules/.bin/cypress open"
   },
   "eslintConfig": {
