@@ -1,10 +1,10 @@
 describe('User can use map', () => {
   beforeEach(() => {
     cy.server()
-    cy.visit('http://localhost:3001')
+    cy.visit('http://localhost:3000')
     cy.route({
       method: 'GET',
-      url: 'http://localhost:3001',
+      url: 'http://localhost:3000',
       response: 'fixture:gm_map_markers.json',
       status: 200
     })
