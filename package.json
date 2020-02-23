@@ -11,11 +11,11 @@
     "react-scripts": "3.4.0"
   },
   "scripts": {
-    "start": "webpack-dev-server --inline --mode development --open",
+    "start": "PORT=3001 react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject",
-    "cy:open": "./node_modules/.bin/cypress open"
+    "cy:open": "BROWSER=none npm start & ./node_modules/.bin/cypress open"
   },
   "eslintConfig": {
     "extends": "react-app"
@@ -33,7 +33,6 @@
     ]
   },
   "devDependencies": {
-    "cypress": "^4.0.2",
-    "webpack-cli": "^3.3.11"
+    "cypress": "^4.0.2"
   }
 }
