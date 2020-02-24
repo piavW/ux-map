@@ -100,13 +100,13 @@ class MapComponent extends Component {
         <div id='map-container'>
           <Map
           google={this.props.google}
-          zoom={5}
+          zoom={7}
           style={mapStyle}
           initialCenter={{
             lat: 30.0131,
             lng: 10.0686}}
           >
-            {operatorData.map(operatorInfo => {
+            {operatorData.map(operatorInfo => { //it iterates but only saves/returns the last iteration
               return(
                 <Marker
                 id={operatorInfo.id}
@@ -115,14 +115,19 @@ class MapComponent extends Component {
                 information={operatorInfo.information}
                 qualifications={operatorInfo.qualifications}
                 equipment={operatorInfo.equipment}
-                lat={operatorInfo.latitude}
-                long={operatorInfo.longitude}
+                lat={operatorInfo.latitude} //this written in position={{lat:x00,lng:00}} doesn't work here but works if hard-coded without the .map
+                lng={operatorInfo.longitude}
                 onClick={this.onMarkerClick}
-                />
-              )
-            })}
+                ></Marker>
+                )
+            }
+            )}
+           {/* Multiple hard-coded Markers work well when using closing tags and the following instead of directly lat/lng: 
+            position={{
+              lat: operatorInfo.latitude,
+              lng: operatorInfo.longitude
+            }} */}
           </Map>
-
         </div>
       </>
     )

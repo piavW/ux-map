@@ -9,7 +9,7 @@ import { jsx } from "@emotion/core"
 
 const lightTheme = {
   text: '#363537',
-  background: '##E2E2E2',
+  background: '#E2E2E2',
   buttonText: '#000',
   buttonTextHover:'#fff',
   buttonBorder: '#000',
