@@ -1,7 +1,6 @@
 import React from 'react'
 import Map from './MapComponent'
 import { Header } from 'semantic-ui-react'
-import 'semantic-ui-less/semantic.less'
 
 const App = () => {
   return (
