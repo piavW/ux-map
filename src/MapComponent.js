@@ -44,7 +44,7 @@ class MapComponent extends Component {
     let errorMessage, showingOperatorInfo
     let operatorData = this.state.operators
     
-    const style = {
+    const mapStyle = {
       width: '60%',
       height: '70%',
       top: '10%',
@@ -60,27 +60,29 @@ class MapComponent extends Component {
     if (this.state.selectedPlace) {
       let operatorInfo = this.state.operatorDetails
       showingOperatorInfo = (
-        <center>
-        <Table color='green' stackable collapsing striped>
+      <center>
+           <Table inverted stackable collapsing striped>
           <Table.Header> 
             <Table.HeaderCell>
-              <Icon size='large' name='spy'/> 
-              {operatorInfo.type}: {operatorInfo.id}
+              <Item.Header as='h3'> 
+                <Icon size='large' name='spy'/> 
+                {operatorInfo.type}: {operatorInfo.id}
+             </Item.Header>
             </Table.HeaderCell>
           </Table.Header>
           <Table.Body>
             <Item.Group>
               <Table.Row>
-                <Item.Image size='tiny' src={operatorInfo.image}></Item.Image>
+                <Item.Image size='small' src={operatorInfo.image}></Item.Image>
               </Table.Row>
               <Table.Row><Table.Cell>
-                <Item.Meta><Icon size='small' name='search plus'/>Info: {operatorInfo.information}</Item.Meta>
+                <Item.Meta as='h4'><Icon size='large' name='search plus'/>Info: {operatorInfo.information}</Item.Meta>
               </Table.Cell></Table.Row>
               <Table.Row><Table.Cell>
-                <Item.Meta><Icon size='small' name='shield alternate'/>Qualifications: {operatorInfo.qualifications}</Item.Meta>
+                <Item.Meta as='h4'><Icon size='large' name='shield alternate'/>Qualifications: {operatorInfo.qualifications}</Item.Meta>
               </Table.Cell></Table.Row>
               <Table.Row><Table.Cell>
-                <Item.Description><Icon size='small' name='suitcase'/>Equipment: {operatorInfo.equipment}</Item.Description>
+                <Item.Description as='h4'><Icon size='large' name='suitcase'/>Equipment: {operatorInfo.equipment}</Item.Description>
               </Table.Cell></Table.Row>
             </Item.Group>
           </Table.Body>
@@ -91,7 +93,6 @@ class MapComponent extends Component {
 
     return(
       <>
-      
         {errorMessage}
         <br/>
         {showingOperatorInfo}
@@ -100,7 +101,7 @@ class MapComponent extends Component {
           <Map
           google={this.props.google}
           zoom={5}
-          style={style}
+          style={mapStyle}
           initialCenter={{
             lat: 30.0131,
             lng: 10.0686}}

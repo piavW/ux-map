@@ -8,18 +8,18 @@ import { ThemeProvider } from 'emotion-theming'
 import { jsx } from "@emotion/core"
 
 const lightTheme = {
-  text: '#000',
-  background: '#fff',
-  buttonText: '#fff',
+  text: '#363537',
+  background: '##E2E2E2',
+  buttonText: '#000',
   buttonTextHover:'#fff',
-  buttonBorder: '#fff',
+  buttonBorder: '#000',
   buttonBg: 'rgba(0,0,0,0)',
   buttonBgHover: 'rgba(0,0,0,1)',
 }
 
 const darkTheme = {
-  text: '#fff',
-  background: '#121212',
+  text: '#FAFAFA',
+  background: '#363537',
   buttonText: '#fff',
   buttonTextHover:'#000',
   buttonBorder: '#fff',

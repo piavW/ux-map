@@ -20,22 +20,26 @@ const App = ( {isDark, setIsDark} ) => {
         transition-property: background-color, color;
       `}>
       
-      <br/>
       <button
         css={css`
-        border: 2px solid ${theme.buttonBorder}
-        background-color: ${theme.buttonBg}
-        color: ${theme.buttonText}
-        padding: 14px 28px
+        border: 2px solid ${theme.buttonBorder};
+        background-color: ${theme.buttonBg};
+        color: ${theme.buttonText};
+        padding: 2px 6px;
+        margin: 10px;
+        :hover {
+          background-color: ${theme.buttonBgHover};
+          color: ${theme.buttonTextHover};
+        }
         `}
         onClick={() => {
           setIsDark(!isDark)
         }}
       >
-        Change to {isDark? 'light' : 'dark'} mode <Icon size='tiny' name='adjust'></Icon>
+        Change to {isDark? 'light' : 'dark'} mode <Icon size='small' name='adjust'></Icon>
       </button>
       <center>
-        <Header as='h2' id='header' content='UX-Map, find your team-mates'/>
+      {isDark? <Header as='h2' id='header' inverted content='UX-Map, find your team-mates'/> : <Header as='h2' id='header' content='UX-Map, find your team-mates'/> }
       </center>
       <div className='map-container'>
         <Map />
