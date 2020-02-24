@@ -48,9 +48,7 @@ class MapComponent extends Component {
       width: '60%',
       height: '70%',
       top: '10%',
-      left: '20%',
-      borderRadius: '6px',
-      position: 'relative'
+      left: '20%'
     }
 
     if (this.state.errorMessage) {
@@ -61,7 +59,7 @@ class MapComponent extends Component {
       let operatorInfo = this.state.operatorDetails
       showingOperatorInfo = (
       <center>
-           <Table inverted stackable collapsing striped>
+           <Table className='ui-table' stackable collapsing striped>
           <Table.Header> 
             <Table.HeaderCell>
               <Item.Header as='h3'> 

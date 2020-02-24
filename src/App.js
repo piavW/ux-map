@@ -40,6 +40,7 @@ const App = ( {isDark, setIsDark} ) => {
       </button>
       <center>
       {isDark? <Header as='h2' id='header' inverted content='UX-Map, find your team-mates'/> : <Header as='h2' id='header' content='UX-Map, find your team-mates'/> }
+      <hr />
       </center>
       <div className='map-container'>
         <Map />
