@@ -1,3 +1,4 @@
+/** @jsx jsx */
 import React from 'react'
 import Map from './MapComponent'
 import { Header, Icon } from 'semantic-ui-react'
@@ -27,7 +28,7 @@ const App = ( {isDark, setIsDark} ) => {
         color: ${theme.buttonText}
         padding: 14px 28px
         `}
-        onclick={() => {
+        onClick={() => {
           setIsDark(!isDark)
         }}
       >

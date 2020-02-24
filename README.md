@@ -12,8 +12,6 @@ Practicing my UX/UI and React skills with a map.
 
 - edit get-request for marker to display all markers - currently only showing last index of array. 
 
-- add darkmode functionality
-
 ## Design choices
 
 - Semantic UI because it's compatible with all/most browsers and is mostly/can be made responsive. 
@@ -23,4 +21,4 @@ Practicing my UX/UI and React skills with a map.
 - Specific information already compact - looks cleaner with less "extra fluff" - personal opinion. 
 - Icons - looks more friendly/fun and easier to understand/remember what it is. 
 
-- emotion-themeing package: seems like a fast way,  clear walkthrough.
+- emotion-themeing package: found a up-to-date and relevant [quick walkthrough](https://levelup.gitconnected.com/adding-dark-mode-to-your-react-app-with-emotion-css-in-js-fc5c0f926838).
