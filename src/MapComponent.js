@@ -48,16 +48,17 @@ class MapComponent extends Component {
   }
 
   getOperatorInfo = async id => {
-    let operatorDeets = []
+    // let operatorDeets = []
     let details = await GetOperator(id)
     debugger
-    operatorDeets[0] = details.id
-    operatorDeets[1] = details.image
-    operatorDeets[2] = details.information
-    operatorDeets[3] = details.qualifications
-    operatorDeets[4] = details.equipment
+    // operatorDeets[0] = details.id
+    // operatorDeets[1] = details.type
+    // operatorDeets[2] = details.image
+    // operatorDeets[3] = details.information
+    // operatorDeets[4] = details.qualifications
+    // operatorDeets[5] = details.equipment
     this.setState({
-      operatorDetails: operatorDeets
+      operatorDetails: details
     })
   }
   // getOperatorInfo = async id => {
@@ -72,7 +73,7 @@ class MapComponent extends Component {
   render() {
     let errorMessage, showingOperatorInfo
     let operatorData = this.state.operators
-    let operatorDeets = this.state.operatorDetails
+    
 
     const style = {
       width: '50%',
@@ -85,28 +86,27 @@ class MapComponent extends Component {
 
     if (this.state.errorMessage) {
     errorMessage = <p id='error-message'>{this.state.errorMessage}</p>
-    }
-
-    operatorDeets.map(operatorInfo => {
+    }    
+    
+    if (this.state.selectedPlace) {
+      let operatorInfo = this.state.operatorDetails
       showingOperatorInfo = (
         <center>
         <Item.Group>
           <Item>
             <Item.Header>About this operative:</Item.Header>
+            <Item.Meta>Id:{operatorInfo.id}</Item.Meta>
             <Item.Meta>Type:{operatorInfo.type}</Item.Meta>
             <Item.Image src={operatorInfo.image}></Item.Image>
             <Item.Meta >Info:{operatorInfo.information}</Item.Meta>
             <Item.Meta>Qualifications:{operatorInfo.qualifications}</Item.Meta>
-            <Item.Description>Equipment:{operatorInfo.equipment}</Item.Description>
-            <Item.Extra>Lat: {operatorInfo.lat}</Item.Extra>
-            <Item.Extra>Long: {operatorInfo.lon}</Item.Extra>
+            <Item.Description>Equipment:{operatorInfo.equipment}</Item.Description>           
           </Item>
         </Item.Group>
         </center>
       )
-    })
-    
-    
+  }
+
     return(
       <>
       
