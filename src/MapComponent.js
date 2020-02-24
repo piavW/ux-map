@@ -21,14 +21,7 @@ class MapComponent extends Component {
     } else {
       this.setState({
         operators: response
-      })
-
-      let details = await GetOperator(response[0].id)
-      let AllDetails = this.state.operators.concat(details)
-      debugger
-      this.setState({
-        operatorDetails: AllDetails
-      })
+      }) 
     }  
   }
 
@@ -51,11 +44,35 @@ class MapComponent extends Component {
       selectedPlace: props,
       activeMarker: marker
     })
+    this.getOperatorInfo(this.state.selectedPlace.id)
   }
+
+  getOperatorInfo = async id => {
+    let operatorDeets = []
+    let details = await GetOperator(id)
+    debugger
+    operatorDeets[0] = details.id
+    operatorDeets[1] = details.image
+    operatorDeets[2] = details.information
+    operatorDeets[3] = details.qualifications
+    operatorDeets[4] = details.equipment
+    this.setState({
+      operatorDetails: operatorDeets
+    })
+  }
+  // getOperatorInfo = async id => {
+  //   let details = await GetOperator(id)
+  //   let AllDetails = this.state.operators.concat(details)
+  //   debugger
+  //   this.setState({
+  //     operatorDetails: AllDetails
+  //   })
+  // }
 
   render() {
     let errorMessage, showingOperatorInfo
     let operatorData = this.state.operators
+    let operatorDeets = this.state.operatorDetails
 
     const style = {
       width: '50%',
@@ -70,36 +87,34 @@ class MapComponent extends Component {
     errorMessage = <p id='error-message'>{this.state.errorMessage}</p>
     }
 
-    if (this.state.selectedPlace) {
-   //   this.getOperatorInfo(this.state.selectedPlace.props.id)
-     operatorData.map(operatorInfo => {
-        showingOperatorInfo = (
-          <center>
-          <Item.Group>
-            <Item>
-              <Item.Header>About this operative:</Item.Header>
-              <Item.Meta>Type:{operatorInfo.type}</Item.Meta>
-              <Item.Image src={operatorInfo.image}></Item.Image>
-              <Item.Meta >Info:{operatorInfo.information}</Item.Meta>
-              <Item.Meta>Qualifications:{operatorInfo.qualifications}</Item.Meta>
-              <Item.Description>Equipment:{operatorInfo.equipment}</Item.Description>
-              <Item.Extra>Lat: {operatorInfo.lat}</Item.Extra>
-              <Item.Extra>Long: {operatorInfo.lon}</Item.Extra>
-            </Item>
-          </Item.Group>
-          </center>
-        )
-      })
-    }
+    operatorDeets.map(operatorInfo => {
+      showingOperatorInfo = (
+        <center>
+        <Item.Group>
+          <Item>
+            <Item.Header>About this operative:</Item.Header>
+            <Item.Meta>Type:{operatorInfo.type}</Item.Meta>
+            <Item.Image src={operatorInfo.image}></Item.Image>
+            <Item.Meta >Info:{operatorInfo.information}</Item.Meta>
+            <Item.Meta>Qualifications:{operatorInfo.qualifications}</Item.Meta>
+            <Item.Description>Equipment:{operatorInfo.equipment}</Item.Description>
+            <Item.Extra>Lat: {operatorInfo.lat}</Item.Extra>
+            <Item.Extra>Long: {operatorInfo.lon}</Item.Extra>
+          </Item>
+        </Item.Group>
+        </center>
+      )
+    })
+    
     
     return(
       <>
-      <Grid container rows='2' divided relaxed stackable>
+      
         {errorMessage}
-        <Grid.Row>
+        
         {showingOperatorInfo}
-        </Grid.Row>
-        <Grid.Row id='map-container'>
+      
+        <div id='map-container'>
           <Map
           google={this.props.google}
           zoom={5}
@@ -111,7 +126,7 @@ class MapComponent extends Component {
             {operatorData.map(operatorInfo => {
               return(
                 <Marker
-                id={`operator_${operatorInfo.id}`}
+                id={operatorInfo.id}
                 type={operatorInfo.type}
                 image={operatorInfo.image}
                 information={operatorInfo.information}
@@ -124,8 +139,8 @@ class MapComponent extends Component {
               )
             })}
           </Map>
-        </Grid.Row>
-        </Grid>
+
+        </div>
       </>
     )
   }

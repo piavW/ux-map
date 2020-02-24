@@ -11,7 +11,6 @@ const GetOperators = () => {
 }
 
 const GetOperator = (id) => {
-  debugger
   return new Promise(resolve => setTimeout(() => resolve(data.operators.find(o => o.id === id)), 1000));
 }
  
