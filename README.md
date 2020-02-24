@@ -22,3 +22,5 @@ Practicing my UX/UI and React skills with a map.
 - Specific information shows up above map - to limit the amount of click/scroll for the user. 
 - Specific information already compact - looks cleaner with less "extra fluff" - personal opinion. 
 - Icons - looks more friendly/fun and easier to understand/remember what it is. 
+
+- emotion-themeing package: seems like a fast way,  clear walkthrough.
