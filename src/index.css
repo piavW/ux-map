@@ -5,4 +5,8 @@ html, body {
 .ui-table{ 
   box-shadow: 0 0 10px darkseagreen!important;
 }
-hr { width:100%; height:1px; background:darkseagreen }
+hr { 
+  width:100%; 
+  height:1px; 
+  background:darkseagreen 
+}

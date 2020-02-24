@@ -15,7 +15,7 @@ const App = ( {isDark, setIsDark} ) => {
         background-color: ${theme.background};
         color: ${theme.text};
         text-align: center;
-        height: 100vh;
+        height: 180vh;
         transition-duration: 0.2s;
         transition-property: background-color, color;
       `}>
