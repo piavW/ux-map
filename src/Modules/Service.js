@@ -10,7 +10,8 @@ const GetOperators = () => {
   return new Promise(resolve => setTimeout(() => resolve(data.operators.map(o => addRandomPositon(o))), 2000));
 }
 
-const GetOperator= (id) => {
+const GetOperator = (id) => {
+  debugger
   return new Promise(resolve => setTimeout(() => resolve(data.operators.find(o => o.id === id)), 1000));
 }
  
