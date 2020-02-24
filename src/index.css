@@ -10,3 +10,7 @@ hr {
   height:1px; 
   background:darkseagreen 
 }
+
+button:focus {
+  outline:0;
+}
