@@ -58,25 +58,27 @@ class MapComponent extends Component {
     let operatorData = this.state.operators
 
     const style = {
-      width: '60%',
-      height: '80%',
-      left: '20%',
+      width: '50%',
+      height: '70%',
+      top: '10%',
+      left: '25%',
       borderRadius: '6px',
       position: 'relative'
     }
 
     if (this.state.errorMessage) {
-    errorMessage = <p id="error-message">{this.state.errorMessage}</p>
+    errorMessage = <p id='error-message'>{this.state.errorMessage}</p>
     }
 
     if (this.state.selectedPlace) {
    //   this.getOperatorInfo(this.state.selectedPlace.props.id)
      operatorData.map(operatorInfo => {
         showingOperatorInfo = (
-          <Grid centered stackable>
+          <center>
           <Item.Group>
             <Item>
-              <Item.Header>Type:{operatorInfo.type}</Item.Header>
+              <Item.Header>About this operative:</Item.Header>
+              <Item.Meta>Type:{operatorInfo.type}</Item.Meta>
               <Item.Image src={operatorInfo.image}></Item.Image>
               <Item.Meta >Info:{operatorInfo.information}</Item.Meta>
               <Item.Meta>Qualifications:{operatorInfo.qualifications}</Item.Meta>
@@ -85,17 +87,19 @@ class MapComponent extends Component {
               <Item.Extra>Long: {operatorInfo.lon}</Item.Extra>
             </Item>
           </Item.Group>
-          </Grid>
+          </center>
         )
       })
     }
     
     return(
       <>
-      <Grid centered container>
+      <Grid container rows='2' divided relaxed stackable>
         {errorMessage}
         <Grid.Row>
-        <div id="map-container">
+        {showingOperatorInfo}
+        </Grid.Row>
+        <Grid.Row id='map-container'>
           <Map
           google={this.props.google}
           zoom={5}
@@ -118,14 +122,8 @@ class MapComponent extends Component {
                 onClick={this.onMarkerClick}
                 />
               )
-            })
-          }
-          
+            })}
           </Map>
-        </div>
-        </Grid.Row>
-        <Grid.Row>
-        {showingOperatorInfo}
         </Grid.Row>
         </Grid>
       </>
