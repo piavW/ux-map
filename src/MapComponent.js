@@ -24,7 +24,7 @@ class MapComponent extends Component {
     }
   }
 
-  onMarkerClick = (props,marker) => {
+  onMarkerClick = (props, marker) => {
     this.setState({
       selectedPlace: props,
       activeMarker: marker
@@ -34,6 +34,7 @@ class MapComponent extends Component {
   render() {
     let errorMessage, showingOperatorInfo
     let operatorData = this.state.operators
+
     const style = {
       width: '60%',
       height: '80%',
@@ -50,19 +51,20 @@ class MapComponent extends Component {
      operatorData.map(operatorInfo => {
         showingOperatorInfo = (
           <Grid centered stackable>
-          <Item.Group> 
+          <Item.Group>
             <Item>
               <Item.Header>{operatorInfo.type}</Item.Header>
               <Item.Image src={operatorInfo.image}></Item.Image>
               <Item.Meta >{operatorInfo.information}</Item.Meta>
-              <Item.Meta content={operatorInfo.qualifications}>{operatorInfo.qualifications}</Item.Meta>
-              <Item.Description content={operatorInfo.equipment}>{operatorInfo.equipment}</Item.Description>
-              <Item.Extra content={operatorInfo.latitude}>Lat: {operatorInfo.latitude}</Item.Extra>
-              <Item.Extra content={operatorInfo.longitude}>Long: {operatorInfo.longitude}</Item.Extra>
+              <Item.Meta>{operatorInfo.qualifications}</Item.Meta>
+              <Item.Description>{operatorInfo.equipment}</Item.Description>
+              <Item.Extra>Lat: {operatorInfo.lat}</Item.Extra>
+              <Item.Extra>Long: {operatorInfo.lon}</Item.Extra>
             </Item>
           </Item.Group>
           </Grid>
         )
+        debugger
       })
     }
     
@@ -79,7 +81,7 @@ class MapComponent extends Component {
             lat: 30.0131,
             lng: 10.0686}}
           >
-           {operatorData.map(operatorInfo => {
+            {operatorData.map(operatorInfo => {
               return(
                 <Marker
                 id={`operator_${operatorInfo.id}`}
@@ -93,7 +95,9 @@ class MapComponent extends Component {
                 onClick={this.onMarkerClick}
                 />
               )
-            })}
+            })
+          }
+          
           </Map>
         </div>
         {showingOperatorInfo}
