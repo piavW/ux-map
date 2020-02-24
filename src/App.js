@@ -6,6 +6,7 @@ import 'semantic-ui-less/semantic.less'
 const App = () => {
   return (
     <>
+    <br/>
       <center>
         <Header as='h2' id='header' content='UX-Map, find your team-mates'/>
       </center>
