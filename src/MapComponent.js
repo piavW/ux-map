@@ -12,7 +12,7 @@ class MapComponent extends Component {
     selectedPlace: null
   }
 
-  async componentDidMount() {
+  async componentDidMount() { //Gets array of id, type and latitude & longitude.
     let response = await GetOperators()
     if (response.error_message) {
       this.setState({
@@ -33,7 +33,8 @@ class MapComponent extends Component {
     this.getOperatorInfo(this.state.selectedPlace.id)
   }
 
-  getOperatorInfo = async id => {
+  //Selects the specific information related to the given id.
+  getOperatorInfo = async id => { 
     let details = await GetOperator(id)
     this.setState({
       operatorDetails: details
@@ -46,20 +47,20 @@ class MapComponent extends Component {
     
     const mapStyle = {
       width: '60%',
-      height: '70%',
+      height: '70%', //Could be made to cover full width of screen for smaller screen
       top: '10%',
       left: '20%'
     }
 
     if (this.state.errorMessage) {
-    errorMessage = <p id='error-message'>{this.state.errorMessage}</p>
+    errorMessage = <p id='error-message'>{this.state.errorMessage}</p> 
     }    
     
     if (this.state.selectedPlace) {
       let operatorInfo = this.state.operatorDetails
       showingOperatorInfo = (
       <center>
-           <Table className='ui-table' stackable collapsing striped>
+          <Table className='ui-table' stackable collapsing striped> {/* Could be inverted for light & not inverted for dark theme - needs access to isDark */}
           <Table.Header> 
             <Table.HeaderCell>
               <Item.Header as='h3'> 
@@ -97,34 +98,33 @@ class MapComponent extends Component {
       
         <div id='map-container'>
           <Map
+          isMarkerShown={true} //Needed to display all markers on map.
           google={this.props.google}
-          zoom={7}
+          zoom={8} //if more zoomed out it looks like only 1 markers is present if they are close to eachother.
           style={mapStyle}
           initialCenter={{
-            lat: 30.0131,
-            lng: 10.0686}}
+            lat: 35.9580,
+            lng: 39.0010}}
           >
-            {operatorData.map(operatorInfo => { //it iterates but only saves/returns the last iteration
+            {operatorData.map(operatorInfo => {
               return(
                 <Marker
+                key={operatorInfo}
                 id={operatorInfo.id}
                 type={operatorInfo.type}
                 image={operatorInfo.image}
                 information={operatorInfo.information}
                 qualifications={operatorInfo.qualifications}
                 equipment={operatorInfo.equipment}
-                lat={operatorInfo.latitude} //this written in position={{lat:x00,lng:00}} doesn't work here but works if hard-coded without the .map
-                lng={operatorInfo.longitude}
+                position={{ 
+                  lat: operatorInfo.lat,
+                  lng: operatorInfo.lon
+                }}
                 onClick={this.onMarkerClick}
-                ></Marker>
+                >
+                </Marker>
                 )
-            }
-            )}
-           {/* Multiple hard-coded Markers work well when using closing tags and the following instead of directly lat/lng: 
-            position={{
-              lat: operatorInfo.latitude,
-              lng: operatorInfo.longitude
-            }} */}
+            })}
           </Map>
         </div>
       </>
